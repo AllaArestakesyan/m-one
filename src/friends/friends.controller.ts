@@ -29,6 +29,9 @@ export class FriendsController {
 
   @HttpCode(HttpStatus.OK)
   @UseGuards(JwtAuthGuard)
+  @ApiResponse({
+    description: 'The friend request is confirmed based on the user_id.'
+  })
   @ApiBearerAuth('JWT-auth')
   @Post("accepted")
   async accepted(@Body() sendFriendRequestDto: SendFriendRequestDto, @Request() req, @Res() res: Response) {
@@ -39,9 +42,12 @@ export class FriendsController {
       return res.status(HttpStatus.OK).json({ message: e.message });
     }
   }
-
+  
   @HttpCode(HttpStatus.OK)
   @UseGuards(JwtAuthGuard)
+  @ApiResponse({
+    description: 'The friend request is declined based on the user_id.'
+  })
   @ApiBearerAuth('JWT-auth')
   @Post("declined")
   async declined(@Body() sendFriendRequestDto: SendFriendRequestDto, @Request() req, @Res() res: Response) {

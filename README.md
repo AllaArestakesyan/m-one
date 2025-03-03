@@ -11,6 +11,7 @@ Technologies Used <br>
 Database<br>
 The application uses PostgreSQL, and all database queries are written using raw SQL instead of an ORM, as instructed.
 
+
 ## PostgreSQL tables
 
 ```bash

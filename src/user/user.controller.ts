@@ -1,5 +1,5 @@
 import { Controller, Get, Post, Body, Param, Query, HttpCode, UseGuards, HttpStatus } from '@nestjs/common';
-import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 import { SearchUserDto } from './dto/search-user.dto';
 import { UserService } from './user.service';
@@ -18,6 +18,9 @@ export class UserController {
   // Search for users by first name, last name, and age
   @HttpCode(HttpStatus.OK)
   @UseGuards(JwtAuthGuard)
+  @ApiResponse({
+    description:"Search for users by first name, last name, and age"
+  })
   @ApiBearerAuth('JWT-auth')
   @Get('search')
   async search(@Query() searchUserDto: SearchUserDto) {

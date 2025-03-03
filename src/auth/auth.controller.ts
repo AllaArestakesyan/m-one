@@ -21,8 +21,7 @@ export class AuthController {
   @HttpCode(HttpStatus.OK)
   @UseGuards(LocalAuthGuard)
   @ApiResponse({
-    description:
-      'You need to enter your email and password, and we will return an access_token as the response.',
+    description:`You need to enter your email and password, and we will return an access_token as the response.`
   })
   @Post('login')
   async login(@Body() us: LoginUser, @Request() req) {
@@ -32,6 +31,9 @@ export class AuthController {
 
   @HttpCode(HttpStatus.OK)
   @ApiBody({ type: CreateUserDto })
+  @ApiResponse({
+    description:`You need to enter your email and password, and we will return an access_token as the response.`
+  })
   @Post('register')
   async register(@Body() registerDto: RegisterDTO, @Res() res: Response) {
     try {
@@ -43,13 +45,11 @@ export class AuthController {
   }
 
 
-
   @HttpCode(HttpStatus.OK)
   @UseGuards(JwtAuthGuard)
   @ApiBearerAuth('JWT-auth')
   @ApiResponse({
-    description:
-      'ըստ access_token -ի վերադարձնում է login եղած մարդու տվյալները',
+    description:`The user's data is returned based on the access_token.`
   })
   @Get('profile')
   async getProfile(@Request() req, @Res() res: Response) {
