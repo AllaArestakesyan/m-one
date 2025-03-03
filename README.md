@@ -3,12 +3,13 @@
 ## Architecture Overview
 The application follows a RESTful architecture․
 
-Technologies Used <br>
-<li>Swagger: Implemented to document and visualize the API endpoints. Accessible at http://localhost:3000/api.</li>
-<li>Passport.js: Used for implementing authentication, with passport-local for local login and passport-jwt for handling JWT tokens.</li>
-<li>bcrypt: Used for securely hashing and storing passwords.</li>
-<li>Joi: Used for input validation to ensure the integrity of the data being submitted.</li>
-Database<br>
+Technologies Used 
+- Swagger: Implemented to document and visualize the API endpoints. Accessible at http://localhost:3000/api.
+- Passport.js: Used for implementing authentication, with passport-local for local login and passport-jwt for handling JWT tokens.
+- bcrypt: Used for securely hashing and storing passwords.
+- Joi: Used for input validation to ensure the integrity of the data being submitted.
+
+### Database
 The application uses PostgreSQL, and all database queries are written using raw SQL instead of an ORM, as instructed.
 
 
